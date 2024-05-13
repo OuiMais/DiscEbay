@@ -35,45 +35,67 @@ async def toSell(ctx, arg):
             - arg: [string] with all information for announcement
 
     """
-    # Separation of all element for the announcement
-    separation = [arg.find("title="), arg.find("price="), arg.find("description=")]
+    if ctx.channel.id == 1239158146602106941:
+        # Separation of all element for the announcement
+        separation = [arg.find("title="), arg.find("price="), arg.find("description=")]
 
-    title = arg[6:separation[1]]
-    price = arg[separation[1] + 6:separation[2]]
-    description = arg[separation[2] + 12:]
+        title = arg[6:separation[1]]
+        price = arg[separation[1] + 6:separation[2]]
+        description = arg[separation[2] + 12:]
 
-    # Prepare the message in embed
-    embed = discord.Embed(title="Annonce de vente", description=f"Créée par {ctx.author.mention}", color=0x00ff00)
-    embed.add_field(name="Titre", value=title, inline=False)
-    embed.add_field(name="Prix", value=price, inline=False)
-    embed.add_field(name="Description", value=description, inline=False)
+        # Prepare the message in embed
+        embed = discord.Embed(title="ANNONCE DE VENTE", description=f"Créée par {ctx.author.mention}", color=0x00ff00)
+        embed.add_field(name="Titre", value=title, inline=False)
+        embed.add_field(name="Prix", value=price, inline=False)
+        embed.add_field(name="Description", value=description, inline=False)
 
-    # Check if photo are send with the message
-    if ctx.message.attachments:
-        # Send message
-        message = await ctx.send(embed=embed)
+        # Check if photo are send with the message
+        if ctx.message.attachments:
+            # Send message
+            message = await ctx.send(embed=embed)
 
-        imageNumber = len(ctx.message.attachments)
+            imageNumber = len(ctx.message.attachments)
 
-        # Send all photo
-        for img in range(imageNumber):
-            image_content = await ctx.message.attachments[img].read()
+            # Send all photo
+            for img in range(imageNumber):
+                image_content = await ctx.message.attachments[img].read()
 
-            file = discord.File(io.BytesIO(image_content), filename="image.png")
-            await ctx.send(file=file)
-    else:
-        # Send message without photo
-        await ctx.send(embed=embed)
+                file = discord.File(io.BytesIO(image_content), filename="image.png")
+                await ctx.send(file=file)
+        else:
+            # Send message without photo
+            await ctx.send(embed=embed)
 
-    # Delete initial message
-    await ctx.message.delete()
+        # Delete initial message
+        await ctx.message.delete()
 
 @bot.command()
-async def search(ctx, title, *description):
-    # Créer un message pour la recherche
-    description = ' '.join(description)
-    search_message = f"**Titre recherché :** {title}\n**Description :** {description}"
-    await ctx.send(search_message)
+async def search(ctx, arg):
+    """
+        Function bot discord to add research announcement
+
+        Input:
+            - ctx: context discord
+            - arg: [string] with all information for announcement
+
+    """
+    if ctx.channel.id == 1239158146602106941:
+        # Separation of all element for the announcement
+        separation = [arg.find("title="), arg.find("description=")]
+
+        title = arg[6:separation[1]]
+        description = arg[separation[1] + 12:]
+
+        # Prepare the message in embed
+        embed = discord.Embed(title="RECHERCHE", description=f"Créée par {ctx.author.mention}", color=0x00ff00)
+        embed.add_field(name="Titre", value=title, inline=False)
+        embed.add_field(name="Description", value=description, inline=False)
+
+        # Send message
+        await ctx.send(embed=embed)
+
+        # Delete initial message
+        await ctx.message.delete()
 
 @bot.command()
 async def finish(ctx, message_id):
