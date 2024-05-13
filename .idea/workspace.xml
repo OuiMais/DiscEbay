@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fdd266-031e-4080-be6e-ecfb903dee04" name="Changes" comment="First">
+    <list default="true" id="e4fdd266-031e-4080-be6e-ecfb903dee04" name="Changes" comment="Sell Command finish">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -26,13 +26,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.MainDiscEbay.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Utilisateurs/floflo/BUREAU/projet/Python/DiscEbay/main.py"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.MainDiscEbay.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Utilisateurs/floflo/BUREAU/projet/Python/DiscEbay/main.py&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MainDiscEbay" type="PythonConfigurationType" factoryName="Python">
       <module name="DiscEbay" />
@@ -87,6 +87,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First" />
-    <option name="LAST_COMMIT_MESSAGE" value="First" />
+    <MESSAGE value="Sell Command finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sell Command finish" />
   </component>
 </project>
