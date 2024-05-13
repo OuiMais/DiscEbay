@@ -97,11 +97,11 @@ async def search(ctx, arg):
         # Delete initial message
         await ctx.message.delete()
 
-@bot.command()
-async def finish(ctx, message_id):
-    # Marquer l'annonce comme terminée
-    message = await ctx.channel.fetch_message(message_id)
-    await message.edit(content="Vente terminée / Recherche terminée")
+# @bot.command()
+# async def finish(ctx):
+#     # Marquer l'annonce comme terminée
+#     message = await ctx.channel.fetch_message()
+#     await message.edit(content="Vente terminée / Recherche terminée")
 
 bot.run('MTIzOTE2MjgwNDU0NDYwNjIzOQ.G4MJV4.jBojU7Wq00Bh_4WzM_HwFKv5i31L0iHMWNReJ8')
 
