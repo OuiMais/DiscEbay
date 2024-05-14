@@ -1,7 +1,7 @@
 """
     Projet : DiscEbay
     Date Creation : 12/05/2024
-    Date Revision : 13/05/2024
+    Date Revision : 14/05/2024
     Entreprise : 3SC4P3
     Auteur: Florian HOFBAUER
     Contact :
@@ -12,18 +12,19 @@ import io
 import discord
 from discord.ext import commands
 
+channelID = 1239158146602106941
+botID = 'MTIzOTE2MjgwNDU0NDYwNjIzOQ.G4MJV4.jBojU7Wq00Bh_4WzM_HwFKv5i31L0iHMWNReJ8'
+
 intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='$', intents=intents)
 
+
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
 
 @bot.command()
 async def toSell(ctx, arg):
@@ -35,7 +36,7 @@ async def toSell(ctx, arg):
             - arg: [string] with all information for announcement
 
     """
-    if ctx.channel.id == 1239158146602106941:
+    if ctx.channel.id == channelID:
         # Separation of all element for the announcement
         separation = [arg.find("title="), arg.find("price="), arg.find("description=")]
 
@@ -44,9 +45,9 @@ async def toSell(ctx, arg):
         description = arg[separation[2] + 12:]
 
         # Prepare the message in embed
-        embed = discord.Embed(title="ANNONCE DE VENTE", description=f"Créée par {ctx.author.mention}", color=0x00ff00)
-        embed.add_field(name="Titre", value=title, inline=False)
-        embed.add_field(name="Prix", value=price, inline=False)
+        embed = discord.Embed(title="SELLING", description=f"Created by {ctx.author.mention}", color=0x00ff00)
+        embed.add_field(name="Title", value=title, inline=False)
+        embed.add_field(name="Price", value=price, inline=False)
         embed.add_field(name="Description", value=description, inline=False)
 
         # Check if photo are send with the message
@@ -69,6 +70,7 @@ async def toSell(ctx, arg):
         # Delete initial message
         await ctx.message.delete()
 
+
 @bot.command()
 async def search(ctx, arg):
     """
@@ -79,7 +81,7 @@ async def search(ctx, arg):
             - arg: [string] with all information for announcement
 
     """
-    if ctx.channel.id == 1239158146602106941:
+    if ctx.channel.id == channelID:
         # Separation of all element for the announcement
         separation = [arg.find("title="), arg.find("description=")]
 
@@ -87,8 +89,8 @@ async def search(ctx, arg):
         description = arg[separation[1] + 12:]
 
         # Prepare the message in embed
-        embed = discord.Embed(title="RECHERCHE", description=f"Créée par {ctx.author.mention}", color=0x00ff00)
-        embed.add_field(name="Titre", value=title, inline=False)
+        embed = discord.Embed(title="SEARCHING", description=f"Created by {ctx.author.mention}", color=0x00ff00)
+        embed.add_field(name="Title", value=title, inline=False)
         embed.add_field(name="Description", value=description, inline=False)
 
         # Send message
@@ -97,11 +99,40 @@ async def search(ctx, arg):
         # Delete initial message
         await ctx.message.delete()
 
-# @bot.command()
-# async def finish(ctx):
-#     # Marquer l'annonce comme terminée
-#     message = await ctx.channel.fetch_message()
-#     await message.edit(content="Vente terminée / Recherche terminée")
 
-bot.run('MTIzOTE2MjgwNDU0NDYwNjIzOQ.G4MJV4.jBojU7Wq00Bh_4WzM_HwFKv5i31L0iHMWNReJ8')
+@bot.command()
+async def finish(ctx):
+    """
+        Function bot discord to stop the research or the sell
 
+        Input:
+            - ctx: context discord
+    """
+
+    if ctx.channel.id == channelID:
+        # If message is a response
+        if ctx.message.reference is not None:
+            # Take id
+            idMessage = ctx.message.reference.message_id
+            # Take initial message
+            message = await ctx.channel.fetch_message(idMessage)
+
+            # Save author
+            embeds = message.embeds[0]
+            description = embeds.description
+            initId = description.find("@")
+
+            if initId > 0:
+                initialAuthor = int(description[initId + 1:-1])
+                messageAuthor = ctx.message.author.id
+
+                # If the author is the same as the creation message
+                if messageAuthor == initialAuthor:
+                    embeds.title = "ANNOUNCEMENT COMPLETED"
+                    embeds.description = "***** Completed *******"
+                await message.edit(embed=embeds)
+
+    # Delete initial message
+    await ctx.message.delete()
+
+bot.run(botID)
