@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fdd266-031e-4080-be6e-ecfb903dee04" name="Changes" comment="Ready to set finish">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="e4fdd266-031e-4080-be6e-ecfb903dee04" name="Changes" comment="Finish">
+      <change afterPath="$PROJECT_DIR$/discebay.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +28,14 @@
   "keyToString": {
     "Python.MainDiscEbay.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Utilisateurs/floflo/BUREAU/projet/Python/DiscEbay/main.py"
+    "last_opened_file_path": "D:/Utilisateurs/floflo/BUREAU/projet/Python/DiscEbay"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Utilisateurs\floflo\BUREAU\projet\Python\DiscEbay" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MainDiscEbay" type="PythonConfigurationType" factoryName="Python">
       <module name="DiscEbay" />
@@ -113,13 +117,22 @@
       <option name="project" value="LOCAL" />
       <updated>1715609782924</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finish">
+      <option name="closed" value="true" />
+      <created>1715699951621</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715699951621</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First" />
     <MESSAGE value="Sell Command finish" />
     <MESSAGE value="Ready to set finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready to set finish" />
+    <MESSAGE value="Finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish" />
   </component>
 </project>
