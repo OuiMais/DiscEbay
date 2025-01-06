@@ -12,8 +12,8 @@ import io
 import discord
 from discord.ext import commands
 
-channelID = 1239158146602106941
-botID = 'MTIzOTE2MjgwNDU0NDYwNjIzOQ.G4MJV4.jBojU7Wq00Bh_4WzM_HwFKv5i31L0iHMWNReJ8'
+channelID = CHANNEL_ID
+botID = DISCORD_TOKEN
 
 intents = discord.Intents.default()
 intents.message_content = True
